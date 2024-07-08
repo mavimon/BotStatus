@@ -104,12 +104,12 @@ async def check_bots():
     log.info("[CHECK] Completed periodic checks.")
 
     # form the message
-    status_message = f"**{CHANNEL_NAME}** - __Bot Status__\n\n"
+    status_message = f"**{CHANNEL_NAME}** - __Active Bots__\n\n"
     for bot, value in bot_stats.items():
         status_message += (
             f"» {value['status']} @{bot}\n"
             if bot_stats[bot]["response_time"] is None
-            else f"» {bot_stats[bot]['status']} @{bot} [ {bot_stats[bot]['response_time']} ]\n"
+            else f"» {bot_stats[bot]['status']} {bot}\n\n"
         )
 
     # add time taken to check
@@ -134,10 +134,10 @@ async def check_bots():
     # add last checked time
     current_time_utc = datetime.datetime.now(pytz.utc)
     current_time = current_time_utc.astimezone(pytz.timezone(TIME_ZONE))
-    status_message += f"**Last checked at** `{current_time.strftime('%H:%M:%S - %d %B %Y')}` [ __{TIME_ZONE}__ ]"
+    status_message += f"**Last checked at** `{current_time.strftime('%H:%M:%S - %d %B %Y')}`"
 
     # add auto check message
-    status_message += f"\n\n**This message will be updated every 2 hours.**"
+    status_message += f"\n\n**Bot status will be updated every 2 hours.**"
 
     # edit the message in the channel
     try:
