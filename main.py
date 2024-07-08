@@ -107,7 +107,7 @@ async def check_bots():
     status_message = f"**{CHANNEL_NAME}** - __Active Bots__\n\n"
     for bot, value in bot_stats.items():
         status_message += (
-            f"» {value['status']} {bot}\n"
+            f"» {value['status']} {bot}\n\n"
             if bot_stats[bot]["response_time"] is None
             else f"» {bot_stats[bot]['status']} {bot}\n\n"
         )
