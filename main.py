@@ -137,7 +137,7 @@ async def check_bots():
     status_message += f"**Last checked at** `{current_time.strftime('%H:%M:%S - %d %B %Y')}`"
 
     # add auto check message
-    status_message += f"\n\n**Bot status will be updated every 2 hours.**"
+    status_message += f"\n\n**Bot status will be updated every 15 minutes.**"
 
     # edit the message in the channel
     try:
